@@ -52,3 +52,28 @@ describe("<Dashboard /> Main Button Checks", () => {
     expect(getByTestId("outs")).toHaveTextContent('2') // shows balls, strikes return to 0 and outs increment
     })
 })
+
+describe("<Dashboard /> hit button Checks", () => {
+    const { getByTestId } = render(<Dashboard />)
+    const hitbutton = getByTestId("hit-btn");
+    it("Should properly keep track of singles, doubles, triples, and homeruns", () => {
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("single-btn"))
+        expect(getByTestId("singles")).toHaveTextContent('1')
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("double-btn"))
+        expect(getByTestId("doubles")).toHaveTextContent('1')
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("triple-btn"))
+        expect(getByTestId("triples")).toHaveTextContent('1')
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("homerun-btn"))
+        expect(getByTestId("homeruns")).toHaveTextContent('1')
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("homerun-btn"))
+        expect(getByTestId("homeruns")).toHaveTextContent('2')
+        fireEvent.click(hitbutton);
+        fireEvent.click(getByTestId("homerun-btn"))
+        expect(getByTestId("homeruns")).toHaveTextContent('3')
+})
+})

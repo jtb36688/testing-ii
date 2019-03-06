@@ -1,5 +1,5 @@
 import React from "react";
-import Display from "./Display"
+import Display from "./Display";
 
 class Dashboard extends React.Component {
   state = {
@@ -55,7 +55,6 @@ class Dashboard extends React.Component {
   };
 
   single = () => {
-    console.log("SINGLE");
     this.setState(currentState => ({
       balls: 0,
       strikes: 0,
@@ -117,10 +116,9 @@ class Dashboard extends React.Component {
     this.homerun();
   }
   render() {
-      
     return this.state.hitsexpanded ? (
       <div className="DashboardWrapper">
-      <Display gamedata={this.state} />
+        <Display gamedata={this.state} />
         <button
           data-testid="cancel-btn"
           className="DashboardButton"
@@ -150,6 +148,7 @@ class Dashboard extends React.Component {
           Triple
         </button>
         <button
+          data-testid="homerun-btn"
           className="DashboardButton"
           onClick={() => this.handleHomerun()}
         >
@@ -158,7 +157,7 @@ class Dashboard extends React.Component {
       </div>
     ) : (
       <div className="DashboardWrapper">
-      <Display gamedata={this.state} />
+        <Display gamedata={this.state} />
         <button
           data-testid="ball-btn"
           className="DashboardButton"
