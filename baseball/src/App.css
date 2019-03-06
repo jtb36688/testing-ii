@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.TopDisplayWrapper {
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly
+}
+
+.BottomDisplayWrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly
+}
+
+.DisplayItem {
+  border: 3px groove brown;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.HitItem {
+  border: 2px groove brown;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.DisplayItem p {
+  font-size: 35px;
+  color: yellow;
+}
+
+.DisplayItem h2 {
+  color: white;
+}
+
+.HitItem p {
+  font-size: 30px;
+  color: yellow;
+}
+
+.HitItem h2 {
+  color: white;
+}
