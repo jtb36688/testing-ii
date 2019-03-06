@@ -15,8 +15,8 @@ describe("<Display /> <p> tag Checks", () => {
       homeruns: 0,
       fouls: 0
     };
-    const { getAllByTestId } = render(<Display gamedata={stateprops} />);
-    const allptags = getAllByTestId("ptag").map(node => node.textContent);
+    const { getAllByTitle } = render(<Display gamedata={stateprops} />);
+    const allptags = getAllByTitle("ptag").map(node => node.textContent);
     const numbers = allptags.filter(text => (!isNaN(parseFloat(text)) && isFinite(text)))
 
     expect(allptags).toHaveLength(8)

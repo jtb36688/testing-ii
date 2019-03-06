@@ -22,3 +22,33 @@ describe("<Dashboard /> Expanding Hit Menu Checks", () => {
   })
 });
 
+describe("<Dashboard /> Main Button Checks", () => {
+    const { getByTestId } = render(<Dashboard />)
+    it("Should properly keep track of balls, strikes and outs", () => {
+    fireEvent.click(getByTestId("strike-btn"))
+    expect(getByTestId("outs")).toHaveTextContent('0') // shows outs start at 0
+    expect(getByTestId("strikes")).toHaveTextContent('1')
+    fireEvent.click(getByTestId("strike-btn"))
+    expect(getByTestId("strikes")).toHaveTextContent('2')
+    fireEvent.click(getByTestId("ball-btn"))
+    expect(getByTestId("strikes")).toHaveTextContent('2')
+    expect(getByTestId("balls")).toHaveTextContent('1') // balls and strikes both incremented
+    fireEvent.click(getByTestId("strike-btn"))
+    expect(getByTestId("strikes")).toHaveTextContent('0')
+    expect(getByTestId("balls")).toHaveTextContent('0')
+    expect(getByTestId("outs")).toHaveTextContent('1') // shows strikes.balls return to 0 and outs increment
+    fireEvent.click(getByTestId("ball-btn"))
+    expect(getByTestId("balls")).toHaveTextContent('1')
+    fireEvent.click(getByTestId("ball-btn"))
+    expect(getByTestId("balls")).toHaveTextContent('2')
+    fireEvent.click(getByTestId("ball-btn"))
+    expect(getByTestId("balls")).toHaveTextContent('3')
+    fireEvent.click(getByTestId("strike-btn"))
+    expect(getByTestId("balls")).toHaveTextContent('3')
+    expect(getByTestId("strikes")).toHaveTextContent('1') // balls and strikes both incremented
+    fireEvent.click(getByTestId("ball-btn"))
+    expect(getByTestId("strikes")).toHaveTextContent('0')
+    expect(getByTestId("balls")).toHaveTextContent('0')
+    expect(getByTestId("outs")).toHaveTextContent('2') // shows balls, strikes return to 0 and outs increment
+    })
+})
