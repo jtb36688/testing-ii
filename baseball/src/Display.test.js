@@ -3,7 +3,7 @@ import Display from "./Display";
 import { render } from "react-testing-library";
 import "jest-dom/extend-expect";
 
-describe("<Display />", () => {
+describe("<Display /> <p> tag Checks", () => {
   it("there should be 8 p elements which render numbers", () => {
     const stateprops = {
       balls: 0,
